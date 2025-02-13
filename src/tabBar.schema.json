@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "TabBar": {
+      "type": "object",
+      "properties": {
+        "custom": {
+          "description": "自定义开关",
+          "default": true,
+          "type": "boolean",
+          "enum": [true]
+        },
+        "blurEffect": {
+          "not": {},
+          "default": "none",
+          "description": "[已禁用] iOS 高斯模糊效果，参考 [使用说明](https://ask.dcloud.net.cn/article/36617)",
+          "enum": ["dark", "extralight", "light", "none"],
+          "type": "string"
+        },
+        "iconfontSrc": {
+          "not": {},
+          "description": "[已禁用] list 设置 iconfont 属性时，需要指定字体文件路径",
+          "type": "string"
+        },
+        "midButton": {
+          "not": {},
+          "$ref": "./pages.default.schema.json#/definitions/TabBarMidButton",
+          "description": "[已禁用] 中间按钮 仅在 list 项为偶数时有效"
+        },
+        "position": {
+          "not": {},
+          "default": "bottom",
+          "description": "[已禁用] tab 位置",
+          "enum": ["bottom", "top"],
+          "type": "string"
+        },
+        "redDotColor": {
+          "not": {},
+          "description": "[已禁用] tabBar上红点颜色",
+          "format": "color",
+          "type": "string"
+        },
+        "color": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "tab 上的文字默认颜色",
+          "format": "color",
+          "default": "#999999"
+        },
+        "selectedColor": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "tab 上的文字选中时的颜色",
+          "format": "color",
+          "default": "#EEC900"
+        },
+        "backgroundColor": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "tab 的背景色",
+          "format": "color",
+          "default": "#FFFFFF"
+        },
+        "fontSize": {
+          "default": "20rpx",
+          "description": "文字默认大小",
+          "type": "string"
+        },
+        "iconWidth": {
+          "default": "59rpx",
+          "description": "图标默认宽度（高度等比例缩放）",
+          "type": "string"
+        },
+        "spacing": {
+          "default": "6rpx",
+          "description": "图标和文字的间距",
+          "type": "string"
+        },
+        "height": {
+          "default": "100rpx",
+          "description": "tabBar 默认高度",
+          "type": "string"
+        },
+        "animation": {
+          "description": "是否有动画效果，用于显示和隐藏",
+          "default": true,
+          "type": "boolean"
+        },
+        "selectedFontSize": {
+          "default": "20rpx",
+          "description": "文字选中大小",
+          "type": "string"
+        },
+        "selectedIconWidth": {
+          "default": "59rpx",
+          "description": "图标选中宽度（高度等比例缩放）",
+          "type": "string"
+        },
+        "fontWeight": {
+          "default": 400,
+          "description": "文字默认粗细",
+          "type": "number"
+        },
+        "selectedFontWeight": {
+          "default": 700,
+          "description": "文字选中粗细",
+          "type": "number"
+        },
+        "lineHeight": {
+          "default": 1.2,
+          "description": "文字行高",
+          "type": ["number", "string"]
+        },
+        "selectedLineHeight": {
+          "description": "文字选中行高",
+          "type": ["number", "string"]
+        },
+        "padding": {
+          "default": "0",
+          "description": "间距",
+          "type": "string"
+        },
+        "borderStyle": {
+          "default": "1px solid rgba(0, 0, 0, .3)",
+          "description": "顶部边框样式",
+          "type": "string"
+        },
+        "boxShadowStyle": {
+          "default": "0rpx 0rpx 8rpx 1rpx rgba(0, 0, 0, .3)",
+          "description": "顶部阴影样式",
+          "type": "string"
+        }
+      }
+    },
+    "TabBarItem": {
+      "type": "object",
+      "properties": {
+        "iconfont": {
+          "not": {},
+          "$ref": "./pages.default.schema.json#/definitions/TabBarIconFont",
+          "description": "[已禁用] 字体图标，优先级高于 iconPath"
+        },
+        "hightlight": {
+          "description": "保持尚亮，激活所有选中效果",
+          "type": "boolean"
+        },
+        "fontSize": {
+          "description": "文字默认大小（优先级大）",
+          "type": "string"
+        },
+        "selectedFontSize": {
+          "description": "文字选中大小（优先级大）",
+          "type": "string"
+        },
+        "iconWidth": {
+          "description": "图标默认宽度（高度等比例缩放）（优先级大）",
+          "type": "string"
+        },
+        "selectedIconWidth": {
+          "description": "图标选中宽度（高度等比例缩放）（优先级大）",
+          "type": "string"
+        },
+        "color": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "tab 上的文字默认颜色（优先级大）",
+          "format": "color"
+        },
+        "selectedColor": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "tab 上的文字选中时的颜色（优先级大）",
+          "format": "color"
+        },
+        "fontWeight": {
+          "description": "文字默认粗细（优先级大）",
+          "type": "number"
+        },
+        "selectedFontWeight": {
+          "description": "文字选中粗细（优先级大）",
+          "type": "number"
+        },
+        "lineHeight": {
+          "description": "文字行高（优先级大）",
+          "type": ["number", "string"]
+        },
+        "selectedLineHeight": {
+          "description": "文字选中行高（优先级大）",
+          "type": ["number", "string"]
+        }
+      }
+    }
+  }
+}

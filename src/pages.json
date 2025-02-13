@@ -1,0 +1,50 @@
+{
+  "$schema": "./pages.default.schema.json",
+  "easycom": {
+    "autoscan": false,
+    "custom": {
+      // uni-ui
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  },
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    { "path": "pages/launch/index" },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/member/index",
+      "style": {
+        "disableScroll": true
+      }
+    }
+  ],
+  "subPackages": [],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/logo.png"
+      },
+      {
+        "pagePath": "pages/member/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "uniapp-移动端开发预设模板",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarShadowStyle": "0 0 8rpx 1rpx rgba(0, 0, 0, .3)",
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "black"
+  }
+}

@@ -1,0 +1,12 @@
+dist
+node_modules
+public
+.husky
+.bin
+docs
+html
+.vscode
+.idea
+*.sh
+*.md
+src/styles/icons

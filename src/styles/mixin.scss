@@ -1,0 +1,24 @@
+@mixin safe-area(
+  $attr,
+  $value: 0px,
+  $class-name: safe-area,
+  $important: false
+) {
+  .#{$class-name} {
+    @supports (--safe-area-bottom: constant(safe-area-inset-bottom)) {
+      --safe-area-bottom: constant(safe-area-inset-bottom);
+    }
+
+    @supports (--safe-area-bottom: env(safe-area-inset-bottom)) {
+      --safe-area-bottom: env(safe-area-inset-bottom);
+    }
+
+    @if $important {
+      #{$attr}: calc(constant(safe-area-inset-bottom) + $value) !important;
+      #{$attr}: calc(env(safe-area-inset-bottom) + $value) !important;
+    } @else {
+      #{$attr}: calc(constant(safe-area-inset-bottom) + $value);
+      #{$attr}: calc(env(safe-area-inset-bottom) + $value);
+    }
+  }
+}

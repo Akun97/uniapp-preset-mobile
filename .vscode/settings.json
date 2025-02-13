@@ -1,0 +1,19 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "tsconfig.json": "tsconfig.*.json, shims-uni.d.ts, auto-imports.d.ts, components.d.ts",
+    "vite.config.*": ".env.*, postcss.config.*, tailwind.config.js",
+    "package.json": ".gitignore, yarn*, .yarnrc*, .eslint*, eslint*, .prettier*, prettier*, .stylelint*, stylelint*, .editorconfig, .commitlintrc.js",
+    "pages.json": "*.schema.json"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "eslint.useFlatConfig": false,
+  "prettier.endOfLine": "auto",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "stylelint.validate": ["css", "postcss", "less", "scss", "sass", "vue"]
+}

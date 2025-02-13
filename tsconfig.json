@@ -1,0 +1,34 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "strict": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitThis": false,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": [
+      "@dcloudio/types",
+      "js-cookie",
+      "node",
+      "@uni-helper/uni-app-types",
+      "@uni-helper/uni-ui-types",
+      "miniprogram-api-typings"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "vueCompilerOptions": {
+    "plugins": ["@uni-helper/uni-app-types/volar-plugin"]
+  },
+  "include": ["src/**/*.ts", "./*.ts", "src/**/*.tsx", "src/**/*.vue"]
+}

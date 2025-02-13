@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "AkoIcon"; /* Project id 4435073 */
+  src: url('iconfont.woff2?t=1718707414484') format('woff2'),
+       url('iconfont.woff?t=1718707414484') format('woff'),
+       url('iconfont.ttf?t=1718707414484') format('truetype');
+}
+
+.AkoIcon {
+  font-family: "AkoIcon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ako-home:before {
+  content: "\e609";
+}
+
+.ako-fanhui1:before {
+  content: "\e63e";
+}
+

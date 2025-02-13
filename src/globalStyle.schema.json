@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "GlobalStyle": {
+      "type": "object",
+      "properties": {
+        "navigationBarBackgroundColor": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "导航栏背景颜色（同状态栏背景色），支持 HEX 颜色",
+          "format": "color",
+          "default": "#FFFFFF"
+        },
+        "navigationBarShadow": {
+          "not": {},
+          "additionalProperties": false,
+          "description": "[已禁用] 导航栏阴影",
+          "properties": {
+            "colorType": {
+              "description": "阴影颜色",
+              "enum": ["grey", "blue", "green", "orange", "red", "yellow"],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "navigationBarShadowStyle": {
+          "default": "0 0 8rpx 1rpx rgba(0, 0, 0, .3)",
+          "description": "tabBar 上边框样式",
+          "type": "string"
+        },
+        "backgroundColor": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "default": "#FFFFFF",
+          "description": "下拉显示出来的窗口的背景色，支持 HEX 颜色",
+          "format": "color"
+        },
+        "backgroundTextStyle": {
+          "anyOf": [
+            {
+              "const": "black",
+              "type": "string"
+            },
+            {
+              "const": "white",
+              "type": "string"
+            },
+            {
+              "const": "none",
+              "type": "string"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "enum": ["black", "white", "none"],
+          "default": "black",
+          "description": "下拉 loading 的样式，仅支持 \"black\" / \"white\" / \"none\""
+        }
+      }
+    }
+  }
+}
