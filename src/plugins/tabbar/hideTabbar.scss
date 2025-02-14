@@ -1,0 +1,27 @@
+.uni-app--showtabbar uni-page-wrapper {
+  display: block;
+  height: 100%;
+}
+
+.uni-app--showtabbar uni-page-wrapper::after {
+  display: none;
+}
+
+.uni-app--showtabbar
+  uni-page-head[uni-page-head-type='default']
+  ~ uni-page-wrapper {
+  height: calc(100% - 44px);
+}
+
+uni-app.uni-app--showtabbar uni-page-body::after {
+  display: none;
+}
+
+uni-app.uni-app--showtabbar uni-page-wrapper::after {
+  display: none;
+}
+
+.uni-tabbar-top,
+.uni-tabbar-bottom {
+  display: none;
+}

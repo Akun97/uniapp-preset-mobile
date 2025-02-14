@@ -29,7 +29,9 @@
     </view>
 
     <slot name="bottom">
-      <tabbar></tabbar>
+      <template v-if="isTabbarPage">
+        <tabbar></tabbar>
+      </template>
     </slot>
   </view>
 </template>
@@ -64,7 +66,7 @@ const slots: SetupContext['slots'] = useSlots();
 const hasBottom = ref<boolean>(!!slots.bottom);
 // 是否是导航页
 const isTabbarPage = ref<boolean>(
-  (currentPageConfig.tabBar?.list.map((item) => item.pagePath) ?? []).includes(
+  (currentPageConfig.tabBar?.list?.map((item) => item.pagePath) ?? []).includes(
     useRouter.getCurrentRoute().substring(1)
   )
 );

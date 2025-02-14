@@ -1,40 +1,42 @@
 <template>
-  <cover-view
-    :class="`ako-tabbar-wrapper safe-area ${state.animationAction && state.animation ? (state.show ? 'ako-tabbar-show' : 'ako-tabbar-hide') : ''}`"
-    :style="wrapperStyles"
-  >
-    <cover-view class="ako-tabbar-content" :style="contentStyles">
-      <template v-for="(item, index) in state.list" :key="item.pagePath">
-        <template v-if="item.visible">
-          <navigator
-            :url="`/${item.pagePath}`"
-            open-type="switchTab"
-            class="navigator"
-            hover-class="none"
-          >
-            <cover-view class="ako-tabbar-item" :style="itemStyles(index)">
-              <template v-if="item.iconPath">
-                <image
-                  class="ako-tabbar-item-icon"
-                  :style="iconStyles(index)"
-                  mode="widthFix"
-                  :src="
-                    item.selectedIconPath &&
-                    (state.current === index || item.hightlight)
-                      ? item.selectedIconPath
-                      : item.iconPath
-                  "
-                ></image>
-              </template>
-              <cover-view class="ako-tabbar-item-text">
-                {{ item.text }}
+  <template v-if="state.list?.length">
+    <cover-view
+      :class="`tabbar-wrapper safe-area ${state.animationAction && state.animation ? (state.show ? 'tabbar-show' : 'tabbar-hide') : ''}`"
+      :style="wrapperStyles"
+    >
+      <cover-view class="tabbar-content" :style="contentStyles">
+        <template v-for="(item, index) in state.list" :key="item.pagePath">
+          <template v-if="item.visible">
+            <navigator
+              :url="`/${item.pagePath}`"
+              open-type="switchTab"
+              class="navigator"
+              hover-class="none"
+            >
+              <cover-view class="tabbar-item" :style="itemStyles(index)">
+                <template v-if="item.iconPath">
+                  <image
+                    class="tabbar-item-icon"
+                    :style="iconStyles(index)"
+                    mode="widthFix"
+                    :src="
+                      item.selectedIconPath &&
+                      (state.current === index || item.hightlight)
+                        ? item.selectedIconPath
+                        : item.iconPath
+                    "
+                  ></image>
+                </template>
+                <cover-view class="tabbar-item-text">
+                  {{ item.text }}
+                </cover-view>
               </cover-view>
-            </cover-view>
-          </navigator>
+            </navigator>
+          </template>
         </template>
-      </template>
+      </cover-view>
     </cover-view>
-  </cover-view>
+  </template>
 </template>
 
 <script setup lang="ts">
@@ -151,7 +153,7 @@ onShow(() => {
 <style scoped lang="scss">
 @include safe-area(padding-bottom);
 
-.ako-tabbar {
+.tabbar {
   &-wrapper {
     @apply relative z-10 box-content w-full;
 
