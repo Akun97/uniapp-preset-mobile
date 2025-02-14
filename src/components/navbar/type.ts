@@ -1,4 +1,5 @@
 import Navbar from './index.vue';
+const globalStyle = useRouter.getCurrentPageConfig().globalStyle;
 
 /**
  * @description 顶部导航组件透明渐变配置
@@ -27,7 +28,7 @@ export const navbarProps = {
    */
   show: {
     type: Boolean,
-    default: true
+    default: globalStyle?.navigationStyle === 'custom'
   },
   /**
    * @description 是否显示左侧图标
@@ -40,9 +41,7 @@ export const navbarProps = {
    * @description 顶部导航标题
    */
   title: {
-    type: String,
-    default:
-      useRouter.getCurrentPageConfig().globalStyle?.navigationBarTitleText ?? ''
+    type: String
   },
   /**
    * @description 顶部导航高度，rpx

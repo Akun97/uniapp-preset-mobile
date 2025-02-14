@@ -18,7 +18,7 @@
     }"
   >
     <view class="navbar-content relative flex h-full w-full items-center">
-      <template v-if="!showLeftIcon">
+      <template v-if="showLeftIcon">
         <view
           class="navbar-left-icon pointer-events-auto absolute left-0 top-0 z-20"
           :style="{
@@ -33,12 +33,12 @@
             >
               <template v-if="routerLength != 1">
                 <view
-                  :class="`${backIconClass ?? 'AkoIcon ako-fanhui1'} ${iconClass}`"
+                  :class="`${backIconClass ?? 'AkoIcon ako-fanhui1'} ${iconClass ?? ''}`"
                 ></view>
               </template>
               <template v-else>
                 <view
-                  :class="`${homeIconClass ?? 'AkoIcon ako-home'} ${iconClass}`"
+                  :class="`${homeIconClass ?? 'AkoIcon ako-home'} ${iconClass ?? ''}`"
                 ></view>
               </template>
             </view>
@@ -58,7 +58,7 @@
       </template>
       <slot :title="title" :alpha="alpha">
         <text
-          :class="`${titleClass} w-full text-center`"
+          :class="`w-full text-center ${titleClass ?? ''}`"
           :style="{ opacity: alpha }"
         >
           {{ title }}
@@ -84,6 +84,8 @@ const props = defineProps(navbarProps);
 
 // 获取pages.json，style和globalStyle合并版
 const currentPageConfig = useRouter.getCurrentPageConfig();
+// 标题
+const title = ref<string>();
 // 系统信息
 const systemInfo = uni.getSystemInfoSync();
 // 状态栏高度
@@ -106,6 +108,17 @@ const alpha = computed(() => {
 const slots: SetupContext['slots'] = useSlots();
 // 右侧图标插槽是否被使用
 const hasRightIcon = ref<boolean>(!!slots.rightIcon);
+
+watch(
+  () => props.title,
+  (text) => {
+    title.value =
+      text ?? currentPageConfig.globalStyle?.navigationBarTitleText ?? '';
+  },
+  {
+    immediate: true
+  }
+);
 
 // 内容高度
 function navbarHeight(): number {
