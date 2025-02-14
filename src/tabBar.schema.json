@@ -99,6 +99,28 @@
           "description": "tabBar 默认高度",
           "type": "string"
         },
+        "backgroundImage": {
+          "description": "设置背景图片，优先级高于 backgroundColor",
+          "type": "string"
+        },
+        "backgroundRepeat": {
+          "default": "no-repeat",
+          "description": "设置标题栏的背景图平铺方式\n\n\"repeat\" 背景图片在垂直方向和水平方向平铺\n\n\"repeat-x\" 背景图片在水平方向平铺，垂直方向拉伸\n\n\"repeat-y\" 背景图片在垂直方向平铺，水平方向拉伸\n\n\"no-repeat\" 背景图片在垂直方向和水平方向都拉伸",
+          "enum": ["no-repeat", "repeat", "repeat-x", "repeat-y"],
+          "type": "string"
+        },
+        "list": {
+          "description": "tab 列表",
+          "items": {
+            "$ref": "./pages.default.schema.json#/definitions/TabBarItem"
+          },
+          "type": "array"
+        },
+        "current": {
+          "default": -1,
+          "description": "当前选中tab的index，默认-1",
+          "type": "number"
+        },
         "animation": {
           "description": "是否有动画效果，用于显示和隐藏",
           "default": true,
@@ -157,6 +179,40 @@
           "not": {},
           "$ref": "./pages.default.schema.json#/definitions/TabBarIconFont",
           "description": "[已禁用] 字体图标，优先级高于 iconPath"
+        },
+        "pagePath": {
+          "description": "页面路径，必须在 pages 中先定义",
+          "type": "string"
+        },
+        "iconPath": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "图片路径，icon 大小限制为 40 kb，建议尺寸为 81px * 81px\n\n当 position 为 \"top\" 时，此参数无效\n\n不支持网络图片，不支持字体图标"
+        },
+        "selectedIconPath": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "description": "选中时的图片路径，icon 大小限制为 40 kb，建议尺寸为 81px * 81px\n\n当 position 为 \"top\" 时，此参数无效\n\n不支持网络图片，不支持字体图标"
+        },
+        "text": {
+          "description": "tab 上按钮文字，在 App 和 H5 平台为非必填，例如中间可放一个没有文字的 + 号图标",
+          "type": "string"
+        },
+        "visible": {
+          "description": "该项是否显示，默认显示",
+          "type": "boolean"
         },
         "hightlight": {
           "description": "保持尚亮，激活所有选中效果",

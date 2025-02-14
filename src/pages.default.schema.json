@@ -2731,8 +2731,6 @@
               "items": {
                 "$ref": "#/definitions/TabBarItem"
               },
-              "maxItems": 5,
-              "minItems": 2,
               "type": "array"
             },
             "midButton": {
@@ -2768,7 +2766,7 @@
               "type": "string"
             }
           },
-          "required": ["list", "custom"],
+          "required": ["custom"],
           "type": "object"
         }
       ]

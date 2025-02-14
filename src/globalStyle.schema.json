@@ -4,6 +4,33 @@
     "GlobalStyle": {
       "type": "object",
       "properties": {
+        "navigationStyle": {
+          "default": "default",
+          "description": "导航栏样式，仅支持 \"default\" / \"custom\"\n\n\"custom\" 即取消默认的原生导航栏，详看 [使用注意](https://uniapp.dcloud.net.cn/collocation/pages#customnav)",
+          "enum": ["default", "custom"],
+          "type": "string"
+        },
+        "navigationBarTitleText": {
+          "description": "导航栏标题文字内容",
+          "type": "string"
+        },
+        "navigationBarTextStyle": {
+          "anyOf": [
+            {
+              "const": "black",
+              "type": "string"
+            },
+            {
+              "const": "white",
+              "type": "string"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "default": "black",
+          "description": "导航栏标题颜色及状态栏前景颜色，仅支持 \"black\" / \"white\""
+        },
         "navigationBarBackgroundColor": {
           "anyOf": [
             {
@@ -69,6 +96,32 @@
           "enum": ["black", "white", "none"],
           "default": "black",
           "description": "下拉 loading 的样式，仅支持 \"black\" / \"white\" / \"none\""
+        },
+        "backgroundColorBottom": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "default": "#ffffff",
+          "description": "底部窗口的背景色（bounce回弹区域）",
+          "format": "color"
+        },
+        "backgroundColorTop": {
+          "anyOf": [
+            {
+              "$ref": "./pages.default.schema.json#/definitions/HEXColor"
+            },
+            {
+              "$ref": "./pages.default.schema.json#/definitions/ThemeVar"
+            }
+          ],
+          "default": "#ffffff",
+          "description": "顶部窗口的背景色（bounce回弹区域）",
+          "format": "color"
         }
       }
     }

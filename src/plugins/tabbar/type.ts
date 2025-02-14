@@ -85,6 +85,10 @@ export interface TabbarListType {
  * @description tabbar配置
  */
 export interface TabbarConfig {
+  /**
+   * @description tab 自定义开关
+   */
+  custom: boolean;
   // 原生属性
   /**
    * @description tab 上的文字默认颜色，默认#999999
