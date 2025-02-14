@@ -17,7 +17,31 @@
       }
     },
     {
-      "path": "pages/member/index",
+      "path": "pages/login/index",
+      "style": {
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/error/403",
+      "style": {
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/error/404",
+      "style": {
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/error/500",
+      "style": {
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/error/503",
       "style": {
         "disableScroll": true
       }
@@ -31,10 +55,6 @@
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "/static/logo.png"
-      },
-      {
-        "pagePath": "pages/member/index",
-        "text": "我的"
       }
     ]
   },

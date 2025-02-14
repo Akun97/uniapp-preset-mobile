@@ -40,7 +40,7 @@ module.exports = {
     'selector-type-no-unknown': [
       true,
       {
-        ignoreTypes: ['page']
+        ignoreTypes: ['page', '/^uni-/']
       }
     ],
     'unit-no-unknown': [
